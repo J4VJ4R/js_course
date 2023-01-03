@@ -9,9 +9,28 @@ let totalIva = 0;
 let total = 0;
 
 function agregarProductos(nombre, precio, descuento){
-    let ivaProducto = calcularIva(precio);
-    let descuento = 
-}
+    let precioDescuento;
+    let descuento;
+    let ivaProducto;
+    if(descuento){
+         descuento = calcularDescuento(descuento, precio)
+         precioDescuento = precio - descuento;
+    }
+    
+    if(precioDescuento){
+        ivaProducto = calcularIva(precioDescuento)
+        subtotal = subtotal + precioDescuento;
+    }else{
+        ivaProducto = calcularIva(precio)
+    }
+
+    const productos = {
+        nombre: nombre,
+        precio,
+        precioFinal: precioDescuento ? precioDescuento : undefined,
+        valorIva: (ivaProducto
+    };
+};
 
 function calcularIva(precio){
     let ivaProducto = precio * (iva/100);
